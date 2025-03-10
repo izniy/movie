@@ -20,12 +20,15 @@ const App = () => {
     const [movieList, setMovieList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const fetchMovies = async () => {
+    const fetchMovies = async (query = '') => {
         setIsLoading(true);
         setErrorMessage('');
 
         try {
-            const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+            const endpoint = query
+                ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
+                : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+
             const response = await fetch(endpoint, API_OPTIONS);
             // In react, fetch is often used to get the data from APIs for displaying it on the website
 
@@ -51,8 +54,8 @@ const App = () => {
     }
 
     useEffect(() => {
-        fetchMovies();
-    }, []); // will only run at the start
+        fetchMovies(searchTerm);
+    }, [searchTerm]); // will only run at the start
 
     return (
         <main
