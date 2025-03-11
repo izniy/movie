@@ -32,10 +32,15 @@ const App = () => {
 
         try {
             const endpoint = query
-                ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
-                : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+                ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${API_KEY}`
+                : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
 
-            const response = await fetch(endpoint, API_OPTIONS);
+            const response = await fetch(endpoint, {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json'
+                }
+            });
             // In react, fetch is often used to get the data from APIs for displaying it on the website
 
             if(!response.ok) {
@@ -52,7 +57,7 @@ const App = () => {
 
             setMovieList(data.results || []);
         } catch (error) {
-            console.error('Error fetching movies: ${error}');
+            console.error(`Error fetching movies: ${error}`);
             setErrorMessage('Error fetching movies. Please try again later.');
         } finally {
             setIsLoading(false); // loading stops regardless of failure or success
