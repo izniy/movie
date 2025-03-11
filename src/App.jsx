@@ -38,6 +38,7 @@ const App = () => {
             const response = await fetch(endpoint, {
                 method: 'GET',
                 headers: {
+                    Authorization: `Bearer ${API_KEY}`,
                     accept: 'application/json'
                 }
             });
@@ -58,7 +59,7 @@ const App = () => {
             setMovieList(data.results || []);
         } catch (error) {
             console.error(`Error fetching movies: ${error}`);
-            setErrorMessage('Error fetching movies. Please try again later.');
+            setErrorMessage(`Error fetching movies. Please try again later.`);
         } finally {
             setIsLoading(false); // loading stops regardless of failure or success
         }
