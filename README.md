@@ -1,5 +1,10 @@
 # 🎥 Movie Library App
 
+[![Live on Vercel](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel&style=for-the-badge)](https://movielibrary-seven.vercel.app)
+[![Built with React](https://img.shields.io/badge/React-2023-blue?logo=react&style=for-the-badge)](https://react.dev/)
+[![Styled with Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-Utility%20First-38bdf8?logo=tailwindcss&style=for-the-badge)](https://tailwindcss.com/)
+[![Powered by TMDB](https://img.shields.io/badge/Powered%20by-TMDB-green?logo=themoviedatabase&style=for-the-badge)](https://www.themoviedb.org/)
+
 A sleek and responsive React.js movie discovery web application that allows users to browse, search and explore over 300+ movies with ease. The project showcases a beautiful UI with dynamic movie cards, search functionality, and smooth design transitions. 
 
 > ✅ **Live Demo:** [movielibrary-seven.vercel.app](https://movielibrary-seven.vercel.app)
